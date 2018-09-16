@@ -1,5 +1,6 @@
-function bubbleSort(array: number[]): number[] {
-  array = array.slice();
+function bubbleSort(originalArray: number[]): number[] {
+  // Clone original array to prevent its modification.
+  const array = [...originalArray];
   while (true) {
     let swapped = false;
     for (let j = 0; j < array.length - 1; j++) {
@@ -8,6 +9,7 @@ function bubbleSort(array: number[]): number[] {
         swapped = true;
       }
     }
+    // If swapped is not true, no need to continue, and break out of loop
     if (!swapped) break;
   }
   return array;
