@@ -1,8 +1,8 @@
 /**
  * Sorts an array using quick sort
  */
-function quickSort(array: number[]): number[] {
-  array = array.slice();
+function quickSort(originalArray: number[]): number[] {
+  const array = [...originalArray];
   partition(array, 0, array.length);
   return array;
 }
