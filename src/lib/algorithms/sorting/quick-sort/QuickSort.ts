@@ -10,8 +10,8 @@ function quickSort(originalArray: number[]): number[] {
 /**
  * Partitions the [start, before) index of the array
  */
-function partition(array: number[], start: number, before: number): void {
-  const length = before - start;
+function partition(array: number[], start: number, indexDirectlyBeforePartition: number): void {
+  const length = indexDirectlyBeforePartition - start;
 
   /** Terminate the recursion */
   if (length <= 1) return;
@@ -25,7 +25,7 @@ function partition(array: number[], start: number, before: number): void {
   let pivotRank = start;
 
   /** Loop through all the elements, partitioning around the pivot */
-  for (let index = start + 1; index < before; index++) {
+  for (let index = start + 1; index < indexDirectlyBeforePartition; index++) {
     if (array[index] < pivot) {
       pivotRank++;
       [array[index], array[pivotRank]] = [array[pivotRank], array[index]];
@@ -41,7 +41,7 @@ function partition(array: number[], start: number, before: number): void {
   partition(array, start, pivotRank);
 
   /** Partition all the elements more than the pivot */
-  partition(array, pivotRank + 1, before);
+  partition(array, pivotRank + 1, indexDirectlyBeforePartition);
 }
 
 const unsortedArray = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
