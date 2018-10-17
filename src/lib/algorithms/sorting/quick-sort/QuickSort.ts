@@ -11,13 +11,13 @@ function quickSort(originalArray: number[]): number[] {
  * Partitions the [startOfArray, before) index of the array
  */
 function partition(array: number[], startOfArray: number, indexDirectlyBeforePartition: number): void {
-  const length = indexDirectlyBeforePartition - startOfArray;
+  const lengthOfArray = indexDirectlyBeforePartition - startOfArray;
 
   /** Terminate the recursion */
-  if (length <= 1) return;
+  if (lengthOfArray <= 1) return;
 
   /** Randomly select a pivot and move it to the head of the array */
-  const pivotIndex = startOfArray + Math.floor(Math.random() * length);
+  const pivotIndex = startOfArray + Math.floor(Math.random() * lengthOfArray);
   [array[startOfArray], array[pivotIndex]] = [array[pivotIndex], array[startOfArray]];
 
   /** The first element is our pivot */
